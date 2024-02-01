@@ -98,7 +98,7 @@
 		</div>
 	</div>
 
-    @include('admin.includes.addeditfooterjs')
+	@include('admin.includes.addeditfooterjs')
 
 
 </body></html>
