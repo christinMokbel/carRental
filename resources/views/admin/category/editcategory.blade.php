@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	
   @include('admin.includes.addedithead')
 	@section('title')
-	Add Category
+    Edit Category
 	@endsection
 </head>
 
@@ -12,10 +11,9 @@
 	<div class="container body">
 		<div class="main_container">
 			
-		@include('admin.includes.sidebar')
+        @include('admin.includes.sidebar')
 			
-		@include('admin.includes.topbar')
-
+        @include('admin.includes.topbar')
 			
 
 			<!-- page content -->
@@ -23,7 +21,7 @@
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>Manage Categories</h3>
+							<h3>Edit Category</h3>
 						</div>
 
 						<div class="title_right">
@@ -42,7 +40,7 @@
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>Add Category</h2>
+									<h2>Edit Category</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -62,24 +60,22 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{ route('storecategory') }}" method="post">
-                                    @csrf
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"  action="{{ route('updatecategory', $category->id) }}" method="post">
+                                        @csrf
+                                        @method('put')
 										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="add-category">Add Category <span class="required">*</span>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="add-category">Edit Category <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="add-category" required="required" class="form-control " name="category" value="{{old('category')}}">
+												<input type="text" id="add-category" required="required" class="form-control " name="category" value="{{ $category->category }}" >
 											</div>
-                                            @error('category')
-                                             {{$message}}
-                                            @enderror
 										</div>
 										
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">
 												<button class="btn btn-primary" type="button">Cancel</button>
-												<button type="submit" class="btn btn-success">Add</button>
+												<button type="submit" class="btn btn-success">Update</button>
 											</div>
 										</div>
 
@@ -93,8 +89,7 @@
 			</div>
 			<!-- /page content -->
 
-            @include('admin.includes.footer')
-
+			@include('admin.includes.footer')
 		</div>
 	</div>
 
