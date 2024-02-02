@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Testimonialcontroller;
 use App\Http\Controllers\Categorycontroller;
 use App\Http\Controllers\Carcontroller;
+use App\Http\Controllers\Contactcontroller;
+use App\Http\Controllers\Controller;
+
+
 
 
 Route::prefix('admin')->group( function () {
@@ -34,4 +38,12 @@ Route::prefix('car')->group( function () {
     Route::put('updatecar/{id}',[Carcontroller::class,'update'])->name('updatecar');
     Route::get('deletecar/{id}',[Carcontroller::class,'destroy'])->name('deletecar');
 });
+
+Route::prefix('contact')->group( function () {
+    Route::post('storecontact',[Contactcontroller::class,'store'])->name('storecontact');
+    Route::get('contacts',[Contactcontroller::class,'index'])->name('contacts');
+    Route::get('showcontact/{id}',[Contactcontroller::class,'show'])->name('showcontact');
+    Route::get('deletecontact/{id}',[Contactcontroller::class,'destroy'])->name('deletecontact');
+});
+
 });
