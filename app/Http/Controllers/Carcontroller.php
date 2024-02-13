@@ -37,7 +37,7 @@ class Carcontroller extends Controller
         
         $data = $request ->validate ([
             'title'=>'required|string|max:100',
-            'content'=>'required|string',
+            'content'=>'required|string|max:100',
             'luggage'=>'required|integer',
             'door'=>'required|integer',
             'passenger'=>'required|integer',
@@ -51,7 +51,7 @@ class Carcontroller extends Controller
         $data['image'] = $fileName;
         $data['active']=isset($request->active);
         Car::create($data);
-        return redirect('admin/car/cars')->with('success','insert data successfully');
+        return redirect('admin/car/cars')->with('message','insert data successfully');
 
 
     }
@@ -70,7 +70,7 @@ class Carcontroller extends Controller
         $messages = $this->messages();
         $data = $request->validate([
              'title'=>'required|string|max:100',
-             'content'=> 'required|string',
+             'content'=> 'required|string|max:100',
              'luggage'=>'required|integer',
              'door'=>'required|integer',
              'passenger'=>'required|integer',
@@ -86,14 +86,14 @@ class Carcontroller extends Controller
             
             $data['active'] = isset($request->active);
             Car::where('id', $id)->update($data);
-            return redirect('admin/car/cars')->with('sucess','update successfully');
+            return redirect('admin/car/cars')->with('message','update successfully');
 
     }
 
     public function destroy(string $id)
     {
         Car::where('id', $id)->delete();
-        return redirect('admin/car/cars')->with('success','delete successfully');
+        return redirect('admin/car/cars')->with('message','delete successfully');
     }
    
     public function messages(){

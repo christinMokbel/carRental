@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Http\View\Composers\Topbarcomposer;
 use Illuminate\Support\Facades\View;
+use Illuminate\Pagination\Paginator;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('admin.includes.topbar',Topbarcomposer::class);
-
+        Paginator::useBootstrap();
     }
 }

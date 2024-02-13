@@ -26,7 +26,7 @@ class Categorycontroller extends Controller
                 ], $messages);
                 
                 Category::create($data);
-                return redirect('admin/category/categories')->with('success', 'insert successfuly');
+                return redirect('admin/category/categories')->with('message', 'insert successfuly');
             }
         
          
@@ -44,12 +44,12 @@ class Categorycontroller extends Controller
                     ], $messages);
         
                     Category::where('id', $id)->update($data);
-                    return redirect('admin/category/categories')->with('update', 'update successfuly');
+                    return redirect('admin/category/categories')->with('message', 'update successfuly');
          }
             public function destroy(string $id)
             {
                 Category::where('id', $id)->delete();
-                return redirect('admin/category/categories')->with('delete', 'delete successfuly');
+                return redirect('admin/category/categories')->with('message', 'delete successfuly');
             }
            
         

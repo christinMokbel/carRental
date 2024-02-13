@@ -61,7 +61,7 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left"action="{{ route('updatetestimonial', $testimonial->id) }}" method="post" enctype="multipart/form-data" >
+									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{ route('updatetestimonial', $testimonial->id) }}" method="post" enctype="multipart/form-data" >
 									 @csrf
                                      @method('put')
 									    <div class="item form-group">

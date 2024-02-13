@@ -6,11 +6,13 @@ use App\Http\Controllers\Categorycontroller;
 use App\Http\Controllers\Carcontroller;
 use App\Http\Controllers\Contactcontroller;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Usercontroller;
 
 
 
 
-Route::prefix('admin')->group( function () {
+
+Route::middleware('verified')->prefix('admin')->group( function () {
 
 Route::prefix('testimonial')->group( function () {
     Route::get('createtestimonial',[Testimonialcontroller::class,'create'])->name ('createtestimonial');
@@ -40,10 +42,20 @@ Route::prefix('car')->group( function () {
 });
 
 Route::prefix('contact')->group( function () {
-    Route::post('storecontact',[Contactcontroller::class,'store'])->name('storecontact');
     Route::get('contacts',[Contactcontroller::class,'index'])->name('contacts');
     Route::get('showcontact/{id}',[Contactcontroller::class,'show'])->name('showcontact');
     Route::get('deletecontact/{id}',[Contactcontroller::class,'destroy'])->name('deletecontact');
 });
 
+
+Route::prefix('user')->group( function () {
+    Route::get('createuser',[Usercontroller::class,'create'])->name ('createuser');
+    Route::post('storeuser',[Usercontroller::class,'store'])->name ('storeuser');
+    Route::get('users',[Usercontroller::class,'index'])->name('users');
+    Route::get('edituser/{id}',[Usercontroller::class,'edit'])->name('edituser');
+    Route::put('updateuser/{id}',[Usercontroller::class,'update'])->name('updateuser');
+    Route::get('deleteuser/{id}',[Usercontroller::class,'destroy'])->name('deleteuser');
 });
+});
+Auth::routes(['verify'=>true]);
+Route::post('storecontact',[Contactcontroller::class,'store'])->name('storecontact');

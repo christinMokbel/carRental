@@ -21,7 +21,7 @@ class Contactcontroller extends Controller
          ], $messages);
          Contact::create($data);
          Mail::to('christin@example.com')->send(new ContactMail($data) );
-         return redirect('contact')->with('success', 'insert data successsfully');
+         return redirect('contact')->with('message', 'insert data successsfully');
        }
 
        public function index(){
@@ -41,7 +41,7 @@ class Contactcontroller extends Controller
             public function destroy(string $id)
             {
                 Contact::where('id', $id)->delete();
-                return redirect('admin/contact/contacts')->with('success', 'delete message');
+                return redirect('admin/contact/contacts')->with('message', 'delete message');
             }
 
             public function messages(){

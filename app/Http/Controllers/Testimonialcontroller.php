@@ -34,7 +34,7 @@ class Testimonialcontroller extends Controller
                 $data['image'] = $fileName;
                 $data['published']=isset($request->published);
                 Testimonial::create($data);
-                return redirect('admin/testimonial/testimonials')->with('success', 'insert successfuly');
+                return redirect('admin/testimonial/testimonials')->with('message', 'insert successfuly');
             }
         
          
@@ -61,12 +61,12 @@ class Testimonialcontroller extends Controller
                     
                     $data['published'] = isset($request->published);
                     Testimonial::where('id', $id)->update($data);
-                    return redirect('admin/testimonial/testimonials')->with('update', 'update successfuly');
+                    return redirect('admin/testimonial/testimonials')->with('message', 'update successfuly');
          }
             public function destroy(string $id)
             {
                 Testimonial::where('id', $id)->delete();
-                return redirect('admin/testimonial/testimonials')->with('delete', 'delete successfuly');
+                return redirect('admin/testimonial/testimonials')->with('message', 'delete successfuly');
             }
            
         

@@ -7,6 +7,9 @@ listings
 @endsection
 @section('content')
 @include('front.includes.carlisting')
+            
+{!! $cars->links() !!} 
+                
 @include('front.includes.testimonial')
 @include('front.includes.rentcarnow')
 

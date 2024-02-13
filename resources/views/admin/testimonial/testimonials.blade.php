@@ -86,20 +86,6 @@
                           <td><a href="deletetestimonial/{{ $testimonial->id }}" onclick="return confirm('Are you sure you want to delete?')"><img src="{{ asset('assets/admin/images/delete.png') }}" alt="Delete"></a></td>
                         </tr>
                         @endforeach
-                        <!-- <tr>
-                          <td>Car 1</td>
-                          <td>150</td>
-                          <td>Yes</td>
-                          <td><img src="{{ asset('assets/admin/images/edit.png') }}" alt="Edit"></td>
-                          <td><img src="{{ asset('assets/admin/images/delete.png') }}" alt="Delete"></td>
-                        </tr>
-                        <tr> -->
-                          <!-- <td>Car 2</td>
-                          <td>200</td>
-                          <td>Yes</td>
-                          <td><img src="{{ asset('assets/admin/images/edit.png') }}" alt="Edit"></td>
-                          <td><img src="{{ asset('assets/admin/images/delete.png') }}" alt="Delete"></td>
-                        </tr> -->
                         
                       </tbody>
                     </table>
